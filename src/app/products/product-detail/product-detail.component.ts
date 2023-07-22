@@ -10,9 +10,12 @@ import { Component, OnInit,Input,EventEmitter, Output,ViewEncapsulation,ChangeDe
 export class ProductDetailComponent implements OnInit {
 @Input() name=""
 @Output() bought= new EventEmitter<string>();
-  constructor() { }
+  constructor() { 
+    console.log(`name is ${this.name} in the constructor`)
+  }
 
   ngOnInit(): void {
+    console.log(`name is ${this.name} in the constructor`)
   }
   buy(){
    this.bought.emit(this.name) 
