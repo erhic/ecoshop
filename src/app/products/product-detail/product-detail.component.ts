@@ -7,12 +7,12 @@ import { Component, OnInit,Input,EventEmitter, Output } from '@angular/core';
 })
 export class ProductDetailComponent implements OnInit {
 @Input() name=""
-@Output() bought= new EventEmitter();
+@Output() bought= new EventEmitter<string>();
   constructor() { }
 
   ngOnInit(): void {
   }
   buy(){
-   this.bought.emit() 
+   this.bought.emit(this.name) 
   }
 }
