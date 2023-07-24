@@ -1,0 +1,8 @@
+<h2 [style]="currentStyles">product-list works!</h2>
+<ul>
+  <li (click)="selectorProduct='Webcam'">Webcam</li>
+  <li (click)="selectorProduct='Microphone'">Microphone</li>
+  <li (click)="selectorProduct='Wireless Keyboard'">Wireless Keyboard</li>
+  <li (click)="selectorProduct= onClick()">Wireless Keyboard</li>
+</ul>
+<app-product-detail #product [name]="selectorProduct" (bought)="onBuy($event)"></app-product-detail>
