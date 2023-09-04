@@ -9,6 +9,8 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
+ product:string[]=['Chevrolet', 'Ford', 'General Motors'];
+
 
   constructor() { }
 
