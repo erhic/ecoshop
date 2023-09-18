@@ -1,4 +1,5 @@
-import { Component, OnInit,Input,EventEmitter, Output,ViewEncapsulation,ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit,Input,EventEmitter, Output,ViewEncapsulation,ChangeDetectionStrategy ,OnChanges, SimpleChanges} from '@angular/core';
+import { Product } from '../product';
 
 @Component({
   selector: 'app-product-detail',
@@ -7,15 +8,18 @@ import { Component, OnInit,Input,EventEmitter, Output,ViewEncapsulation,ChangeDe
   encapsulation: ViewEncapsulation.None,
   changeDetection:ChangeDetectionStrategy.OnPush
 })
-export class ProductDetailComponent implements OnInit {
-@Input() name=""
+export class ProductDetailComponent implements OnChanges {
+@Input() product:Product|undefined
 @Output() bought= new EventEmitter<string>();
   constructor() { 
     console.log(`name is ${this.name} in the constructor`)
   }
+  ngOnChanges(changes: SimpleChanges): void {
+    throw new Error('Method not implemented.');
+  }
 
   ngOnInit(): void {
-    console.log(`name is ${this.name} in the constructor`)
+    console.log(`name is ${this.name} in the onit lifecycle hook`)
   }
   buy(){
    this.bought.emit(this.name) 
