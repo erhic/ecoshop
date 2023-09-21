@@ -9,24 +9,19 @@ import { Product } from '../product';
   changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class ProductDetailComponent implements OnChanges {
-@Input() product:Product|undefined
+@Input() product:Product|string='' 
 @Output() bought= new EventEmitter<string>();
   constructor() { 
-    console.log(`name is ${this.name} in the constructor`)
+    console.log(`name is ${this.product} in the constructor`)
   }
+   ngOnInit(): void {
+    console.log(`name is ${this.product} in the onit lifecycle hook`)
+  }
+
+
   ngOnChanges(changes: SimpleChanges): void {
     throw new Error('Method not implemented.');
   }
 
-  ngOnInit(): void {
-    console.log(`name is ${this.name} in the onit lifecycle hook`)
+  buy(){this.product}
   }
-  buy(){
-   this.bought.emit(this.name) 
-  }
-  get productName():string{
-    console.log(`get ${this.name}`)
-    return this.name
-
-  }
-}

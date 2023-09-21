@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Product } from '../products/product';
 
 @Component({
   selector: 'app-product-list',
@@ -14,8 +15,24 @@ currentStyles={
   backgroundColor:'grey'
 }
 
-selectorProduct='Microphone';
-  constructor() { }
+selectorProduct=[
+  {name:'Webcam',price:100},
+  {name:'Mic',price:300},
+  {name:'Ear pods',price:200},
+  {name:'Guitar',price:400},
+  {name:'Xolophone',price:500},
+  {name:'Piano',price:600},
+]
+
+getToPassCssFromHere(){
+  return this.selectorProduct?this.selectorProduct.length>=19:undefined
+ 
+}
+
+myProd(prods:string):string{
+  return prods
+}
+constructor() { }
 
   ngOnInit(): void {
   }
