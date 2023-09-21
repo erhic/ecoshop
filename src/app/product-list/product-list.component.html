@@ -2,10 +2,17 @@
 
 <div class="myProducts">
   <div class="card" *ngFor="let prods of selectorProduct">
-    <div class="card-header">
-      <p>Best Seller</p>
+    <div class="card-header" style="position: relative;" [ngSwitch]="prods.price">
+      <p *ngSwitchCase="200" style="position: absolute;" class="bestseller" [innerText]="'Best Seller'">now
+      </p>
+      <p *ngSwitchCase="1035 || 1050" style="position: absolute;" class="newprod" [innerText]="'New product'">after
+      </p>
+      <p *ngSwitchDefault style="display: none;">again
+      </p>
+
+
     </div>
-    <div class="card-body">
+    <div class=" card-body">
       <div class="img">
         <img src="{{prods.image}}" alt="">
       </div>
