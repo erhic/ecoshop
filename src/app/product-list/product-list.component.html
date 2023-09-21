@@ -1,4 +1,18 @@
 <h2 [style]="currentStyles">product-list works!</h2>
-<ul *ngFor="let prods of selectorProduct" #prod>
-  <li [class.morethan5item]="getToPassCssFromHere()">{{prods.name}}</li>
-</ul>
+
+<div class="myProducts">
+  <div class="card" *ngFor="let prods of selectorProduct">
+    <div class="card-header">
+      <p>Best Seller</p>
+    </div>
+    <div class="card-body">
+      <div class="img">
+        <img src="{{prods.image}}" alt="">
+      </div>
+    </div>
+    <div class="card-footer">
+      <h3>{{prods.name}}</h3>
+      <p>{{prods.price}} Ksh</p>
+    </div>
+  </div>
+</div>
